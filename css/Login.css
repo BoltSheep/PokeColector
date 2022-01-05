@@ -1,0 +1,49 @@
+.login {
+    height: 100%;
+    display: flex;
+    background: linear-gradient(174deg, rgba(2,0,36,1) 0%, rgba(75,30,130,1) 35%, rgba(0,212,255,1) 100%);
+}
+
+.img-login {
+    height: 100%;
+    transform: scale(0.8);  
+    position: relative;
+    left: 10%;
+    top: 15%;     
+}
+
+.title {
+    color: white;
+    font-size: 40px;
+    justify-content: center;
+    display: flex;
+}
+
+.container-login {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.link {
+    width: 100%;
+    font-size: 12px;
+    margin-top: 5px;
+}
+
+.input {
+    width: 100%;
+}
+
+.entrar {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.sing-up {
+    display: flex;
+    justify-content: center;
+}

@@ -1,0 +1,66 @@
+.formulario {
+    display: flex;
+}
+
+.mainContainer .formulario {
+    display: flex;
+    height: 100%;
+    width: 100%;
+    background: linear-gradient(174deg, rgba(2,0,36,1) 0%, rgba(75,30,130,1) 35%, rgba(0,212,255,1) 100%);
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.formulario h1 {
+    font-size: 3rem;
+    margin-bottom: 3rem;
+    color: #aa0707;
+    box-shadow: violet;
+}
+
+form {
+    color: rgba(166, 166, 166);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+form label {
+    display: flex;
+    flex-direction: column;
+}
+
+form label span {
+    font-size: 1.1rem;
+    margin-top: 2rem; 
+}
+
+form input {
+    background: #4f2274;
+    width: 300px;
+    height: 50px;
+    padding: 0 0.5rem;
+    margin-top: 1rem;
+    outline: none;
+    color: rgb(177, 177, 177);
+    font-size: 1rem;
+    border: 1px solid #211729;
+    border-radius: 8px;
+}
+
+form input[type = "submit"] {
+    cursor: pointer;
+    width: 50%;
+    margin-top: 4rem;
+    border: none;
+    border-radius: 32px;
+    background: #aa0707;
+    color: white;
+    font-size: 1.1rem; 
+    transition: all 0.3s ease-in-out;
+}
+
+form input[type = "submit"]:hover {
+    background: #950808;
+}
