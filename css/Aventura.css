@@ -1,0 +1,19 @@
+#centralGame {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    margin-left: auto;
+    margin-right: auto;
+    align-items: center;
+    justify-content: center;
+}
+
+#centralGame img {
+    margin: 30px;
+}
+
+#botaoTimer {
+    background-color: rgb(139, 139, 139);
+    color: black;
+    cursor: not-allowed;
+}
