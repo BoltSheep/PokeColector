@@ -1,0 +1,47 @@
+.conteudoPrincipal {
+    display: flex;
+    margin-left: auto;
+    margin-right: auto;
+    align-items: center;
+    justify-content: space-between;
+    height: 70%;
+}
+
+#divPessoal {
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   justify-items: center;
+}
+
+#fotoUsuario {
+    display: block;
+    cursor: pointer;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 5%;
+    width: 40%;
+}
+
+#buttonContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#buttonContainer button {
+    padding: 20px;
+    margin: 10px;
+    margin-right: 200px;
+}
+
+#timeContainer {
+    margin-left: auto;
+    margin-right: auto;
+    align-items: center;
+    background-color: rgba(156, 158, 158, 0.50);
+    width: 1000px;
+    height: 240px;
+}
+
+
