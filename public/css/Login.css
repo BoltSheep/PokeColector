@@ -31,6 +31,8 @@
     width: 100%;
     font-size: 12px;
     margin-top: 5px;
+    display: flex;
+    justify-content: center;
 }
 
 .input {
@@ -49,16 +51,18 @@
 }
 
 .container-login input {
-    background: #4f2274;
+    background: #ccc;
     width: 300px;
     height: 50px;
     padding: 0 0.5rem;
     margin-top: 1rem;
     outline: none;
-    color: rgb(177, 177, 177);
+    color: rgb(71, 70, 70);
     font-size: 1rem;
     border: 1px solid #211729;
     border-radius: 8px;
+    display: flex;
+    flex-direction: column;
 }
 
 button {

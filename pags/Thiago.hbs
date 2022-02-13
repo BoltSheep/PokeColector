@@ -1,55 +1,49 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cadastro</title>
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="../css/PrincipalStyle.css">
-    <link rel="stylesheet" href="../css/cadastro.css">
-    <script type="module" src="../scripts/GeneralControl.js" defer></script>
+    <link rel="stylesheet" href="../css/Thiago.css">
+    <title>Thiago</title>
 </head>
 <body>
+    <!--TELA TESTE-->
+    {{#if isLoggedIn}}
     <header class="cabecalho">
-        <img class="smallLogo" src="../imgs/smalllogoPokeColector.png" alt="smallLogo">
+        <img class="smallLogo" src="../imgs/smalllogoPokeColector.png" alt="smallLogo"> 
         <nav>
             <ul class="nav-links">
-                <li><a href="../index.html">Inicio</a></li>
-                <li><a href="./pokedex.html">Pokedex</a></li>
-                <li><a href="./regras.html">Regras</a></li>
+                <li><a href="/">Inicio</a></li>
+                <li><a href="/pokedex">Pokedex</a></li>
+                <li><a href="./regras">Regras</a></li>
+                <!--<li>{{trainer.energia}}</li> nao viavel atualmente-->
+                <li><a href="/trainer/perfil">{{trainer.username}}</a></li>
             </ul>
         </nav>
-        <a class="cta" href="./login.html"><button>Login</button></a>
+        <a class="cta" href="/auth/logout"><button>Sair</button></a>
     </header>
+    {{else}}
+    <header class="cabecalho">
+        <img class="smallLogo" src="../imgs/smalllogoPokeColector.png" alt="smallLogo"> 
+        <nav>
+            <ul class="nav-links">
+                <li><a href="/">Inicio</a></li>
+                <li><a href="/pokedex">Pokedex</a></li>
+                <li><a href="/regras">Regras</a></li>
+            </ul>
+        </nav>
+        <a class="cta" href="/login"><button>Login</button></a> <!-- caso esteja logado troacar para sair-->
+    </header>
+    {{/if}}
+
     <div class="mainContainer">
-        <div class="formulario">
-            <h1>Criar Conta</h1>
-            <form action="">
-
-                <label for="nome">
-                    <span>Nome</span>
-                    <input type="text" id="nome" name="name">  
-                </label>
-
-                <label for="username">
-                    <span>Username</span>
-                    <input type="text" id="username" name="username">  
-                </label>
-
-                <label for="email">
-                    <span>e-Mail</span>
-                    <input type="email" id="email" name="email">  
-                </label>
-
-                <label for="senha">
-                    <span>Senha</span>
-                    <input type="password" id="senha" name="password">  
-                </label>
-
-                <input type="submit" value="Cadastrar">
-            </form>
+        <div id="foto">
+            <img src="../imgs/Eu.jpeg" alt="Eu">
         </div>
+        
     </div>
 
     <footer class="footer">
@@ -58,15 +52,15 @@
                 <div class="footerCol">
                     <h4>Sobre o Jogo</h4>
                     <ul>
-                        <li><a href="./regras.html">Regras</a></li>
-                        <li><a href="./pokedex.html">Pokédex</a></li>
-                        <li><a href="/index.html">Eventos</a></li>
+                        <li><a href="/regras">Regras</a></li>
+                        <li><a href="/pokedex">Pokédex</a></li>
+                        <li><a href="/">Eventos</a></li>
                     </ul>
                 </div>
                 <div class="footerCol">
                     <h4>Aluno</h4>
                     <ul>
-                        <li><a href="./thiago.html">Thiago Danilo</a></li>
+                        <li><a href="/thiago">Thiago Danilo</a></li>
                         <li><a href="https://github.com/BoltSheep">Git</a></li>
                     </ul>
                 </div>
@@ -88,5 +82,6 @@
             </div>
         </div>
     </footer>
+    
 </body>
 </html>

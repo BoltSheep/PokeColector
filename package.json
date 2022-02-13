@@ -1,0 +1,43 @@
+{
+  "name": "pokecolector",
+  "version": "1.0.0",
+  "description": "Sistema pokeddex para pokemon e jogo simpls de pokemon - trabalho diciplina Programaçao Web. CEFET-MG",
+  "main": "bin/www.js",
+  "scripts": {
+    "start": "nodemon ./bin/www",
+    "build-db": "docker build -t pokemons-db .",
+    "start-db": "docker run -d -p 3306:3306 pokemons-db > .pokemons-db-cid",
+    "stop-db": "docker stop `cat .pokemons-db-cid`"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BoltSheep/PokeColector.git"
+  },
+  "keywords": [
+    "Pokemon",
+    "Pokedex",
+    "jogo"
+  ],
+  "author": "Thiago Danilo",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/BoltSheep/PokeColector/issues"
+  },
+  "homepage": "https://github.com/BoltSheep/PokeColector#readme",
+  "dependencies": {
+    "bcrypt": "^5.0.1",
+    "connect-flash": "^0.1.1",
+    "cookie-parser": "^1.4.6",
+    "express": "~4.17.1",
+    "express-session": "^1.17.2",
+    "hbs": "~4.2.0",
+    "jsonwebtoken": "^8.5.1",
+    "method-override": "^3.0.0",
+    "morgan": "~1.10.0",
+    "mysql2": "^2.3.3"
+  },
+  "type": "module",
+  "devDependencies": {
+    "nodemon": "^2.0.15"
+  }
+}

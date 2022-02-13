@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="/css/PrincipalStyle.css">
+    <link rel="stylesheet" href="/css/Aventura.css">
+    <title>Document</title>
+</head>
+<body>
+    <body>
+        <header class="cabecalho">
+            <img class="smallLogo" src="../imgs/smalllogoPokeColector.png" alt="smallLogo"> 
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="/">Inicio</a></li>
+                    <li><a href="/pokedex">Pokedex</a></li>
+                    <li><a href="/regras">Regras</a></li>
+                    <!--<li>{{trainer.energia}}</li> nao viavel atualmente-->
+                    <li><a href="/trainer/perfil">{{trainer.username}}</a></li>
+                </ul>
+            </nav>
+            <a class="cta" href="/auth/logout"><button>Sair</button></a>
+        </header>
+        <div class="mainContainer">
+            {{#if wildPokemons}}
+            <h1>CAPTURE SEU POKÉMON!</h1>
+            <div class = 'wildEncouter'>
+                {{#each wildPokemons}}
+                <form action="/trainer/catch" method="post"> 
+                    <input type="hidden" value="{{this.id}}" name="pokemonId">
+                    <div class="cardPokemon">
+                        <img src="{{this.dexPicture}} " alt="Foto do pokemon">  
+                        <input type="submit" id="catchThis" value="{{this.name}}"></input>
+                    </div>
+                </form>
+                {{/each}}
+                </div>
+                
+            {{else}}
+                <div id="centralGame">
+                    <img src="../imgs/floresta.png" alt="campos de captura">
+                    {{#if trainer.pokemon6}}
+                    <a id="botaoTimer" href="/trainer/perfil">Equipe Completa!</a>
+                    {{else}}
+                    <a id="botaoTimer" href="/trainer/encontrar">Se Aventurar</a>
+                    {{/if}}
+                </div>
+            {{/if}}
+        </div>
+    
+</body>
+</html>

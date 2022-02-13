@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/PrincipalStyle.css">
+    <link rel="stylesheet" href="/css/Pokedex.css">
+    <title>Pokédex</title>
+</head>
+<body>
+    <div class="mainContainer bgPokedex">
+        {{#if isLoggedIn}}
+        <header class="cabecalho">
+            <img class="smallLogo" src="../imgs/smalllogoPokeColector.png" alt="smallLogo"> 
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="/">Inicio</a></li>
+                    <li><a href="/pokedex">Pokedex</a></li>
+                    <li><a href="./regras">Regras</a></li>
+                    <!--<li>{{trainer.energia}}</li> nao viavel atualmente-->
+                    <li><a href="/trainer/perfil">{{trainer.username}}</a></li>
+                </ul>
+            </nav>
+            <a class="cta" href="/auth/logout"><button>Sair</button></a>
+        </header>
+        {{else}}
+        <header class="cabecalho">
+            <img class="smallLogo" src="../imgs/smalllogoPokeColector.png" alt="smallLogo"> 
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="/">Inicio</a></li>
+                    <li><a href="/pokedex">Pokedex</a></li>
+                    <li><a href="/regras">Regras</a></li>
+                </ul>
+            </nav>
+            <a class="cta" href="/login"><button>Login</button></a>
+        </header>
+        {{/if}}
+        
+        <div id="pokedexContainer">
+            <h1>POKÉDEX</h1>
+            <div class="cardContainer"></div> <!-- conferir a possibilidade de recer do back x cards-->
+        </div>
+
+        <div id="entryContainer">
+            {{#each pokemons}}
+            <div class="cardPokemon">
+                <img src="{{this.dexPicture}} " alt="Foto do pokemon">  
+                <p>{{this.name}}</p>
+            </div>
+            {{/each}}
+        </div>
+
+    </div>
+</body>
+</html>

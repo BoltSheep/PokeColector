@@ -15,7 +15,7 @@
 .formulario h1 {
     font-size: 3rem;
     margin-bottom: 3rem;
-    color: #aa0707;
+    color: #11b60c;
 }
 
 form {
@@ -36,7 +36,7 @@ form label span {
 }
 
 form input {
-    background: #4f2274;
+    background: #ccc;
     width: 300px;
     height: 50px;
     padding: 0 0.5rem;
@@ -54,12 +54,12 @@ form input[type = "submit"] {
     margin-top: 4rem;
     border: none;
     border-radius: 32px;
-    background: #aa0707;
+    background: #11b60c;
     color: white;
     font-size: 1.1rem; 
     transition: all 0.3s ease-in-out;
 }
 
 form input[type = "submit"]:hover {
-    background: #950808;
+    background: #96c395;
 }
