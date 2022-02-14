@@ -25,9 +25,14 @@ export default {
     },
 
     encontrar: async (req, res) => {
-        const wildPokemons = await pokemonsOps.drawThree()
-        req.flash('wildPokemons',wildPokemons)
-        res.redirect('/trainer/aventurar')
+        try {
+            const wildPokemons = await pokemonsOps.drawThree()
+            req.flash('wildPokemons',wildPokemons)
+            res.redirect('/trainer/aventurar')    
+        } catch (error) {
+            res.redirect('/trainer/aventurar')
+        }
+        
     },
 
     catch: async(req,res) => {

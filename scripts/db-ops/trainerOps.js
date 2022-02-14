@@ -24,17 +24,27 @@ const trainerOps = {
 
     insert: async ({username, email, hash, realName}) => {
         const transaction = await db.getConnection()
-        await transaction.beginTransaction()
-        const [insertResult] = await transaction.execute(
-            `INSERT INTO trainer (id, nameReal, username, hash, email, energia, perfilPictureUrl)
-             VALUES (NULL, ?, ?, ?, ?,5,NULL)`,
-            [realName, username, hash, email]
-          )
-      
-          if (!insertResult || insertResult.insertedRows < 1) {
-            throw new Error(`nao foi possivel inserir novo usuario`)
-          }
-          await transaction.commit()
+        try {
+            await transaction.beginTransaction()
+            const [insertResult] = await transaction.execute(
+                `INSERT INTO trainer (id, nameReal, username, hash, email, energia, perfilPictureUrl)
+                VALUES (NULL, ?, ?, ?, ?,5,NULL)`,
+                [realName, username, hash, email]
+            )
+        
+            if (!insertResult || insertResult.insertedRows < 1) {
+                await transaction.rollback()  
+                throw new Error(`nao foi possivel inserir novo usuario`)
+            }
+            await transaction.commit()    
+        } catch (error) {
+            if (transaction) {
+                console.log('rollingBack')
+                await transaction.rollback()
+            }
+            throw error
+        }
+        
     },
 
     getAvailable: (trainer) => {
@@ -48,56 +58,78 @@ const trainerOps = {
 
     updatePokemonSpot: async (trainerId, position, pokemonId) => {
         const transaction = await db.getConnection()
-        await transaction.beginTransaction()
-        const [updateResult] = await transaction.execute(
-            `UPDATE trainer SET pokemon${position} = ? WHERE id = ?`,
-            [pokemonId, trainerId]
-          )
-          console.log(updateResult)
-          if (updateResult.affectedRows != 1) {
-            throw new Error(`nao foi possivel atualizar usuario`)
-          }
-          await transaction.commit()
+        try {
+            await transaction.beginTransaction()
+            const [updateResult] = await transaction.execute(
+                `UPDATE trainer SET pokemon${position} = ? WHERE id = ?`,
+                [pokemonId, trainerId]
+            )
+            console.log(updateResult)
+            if (updateResult.affectedRows != 1) {
+                throw new Error(`nao foi possivel atualizar usuario`)
+            }
+            await transaction.commit()    
+        } catch (error) {
+            if (transaction) {
+                console.log('rollingBack')
+                await transaction.rollback()
+            }
+            throw error
+        }
     },
 
     sendToPc: async (trainerId) => {
         const transaction = await db.getConnection()
-        await transaction.beginTransaction()
-        const [updateResult] = await transaction.execute(
-            `UPDATE trainer SET 
-            pokemon2 = NULL, 
-            pokemon3 = NULL, 
-            pokemon4 = NULL, 
-            pokemon5 = NULL, 
-            pokemon6 = NULL WHERE id = ? `,
-            [trainerId]
-          )
-          console.log(updateResult)
-          if (updateResult.affectedRows != 1) {
-            throw new Error(`nao foi possivel enviar para o pc`)
-          }
-          await transaction.commit()
+        try {
+            await transaction.beginTransaction()
+            const [updateResult] = await transaction.execute(
+                `UPDATE trainer SET 
+                pokemon2 = NULL, 
+                pokemon3 = NULL, 
+                pokemon4 = NULL, 
+                pokemon5 = NULL, 
+                pokemon6 = NULL WHERE id = ? `,
+                [trainerId]
+            )
+            if (updateResult.affectedRows != 1) {
+                throw new Error(`nao foi possivel enviar para o pc`)
+            }
+            await transaction.commit()    
+        } catch (error) {
+            if (transaction) {
+                console.log('rollingBack')
+                await transaction.rollback()
+            }
+            throw error
+        }
+        
     },
 
     updateTrainer: async ({trainerId, nameReal, profilePic}) => {
         const transaction = await db.getConnection()
-        await transaction.beginTransaction()
-        const [updateResult] = await transaction.execute(
-            `UPDATE trainer SET 
-            nameReal = ?, 
-            perfilPictureUrl = ? 
-            WHERE id = ? `,
-            [nameReal, profilePic, trainerId]
-          )
-          console.log(updateResult)
-          if (updateResult.affectedRows != 1) {
-            throw new Error(`nao foi possivel atualizar seu perfil`)
-          }
-          await transaction.commit()
+        try {
+            await transaction.beginTransaction()
+            const [updateResult] = await transaction.execute(
+                `UPDATE trainer SET 
+                nameReal = ?, 
+                perfilPictureUrl = ? 
+                WHERE id = ? `,
+                [nameReal, profilePic, trainerId]
+            )
+            console.log(updateResult)
+            if (updateResult.affectedRows != 1) {
+                throw new Error(`nao foi possivel atualizar seu perfil`)
+            }
+            await transaction.commit()    
+        } catch (error) {
+            if (transaction) {
+                console.log('rollingBack')
+                await transaction.rollback()
+            }
+            throw error
+        }
+        
     }
-
-
-
 
 }
 

@@ -13,8 +13,10 @@
 }
 
 #botaoTimer {
-    background-color: rgb(139, 139, 139);
+    background-color: rgb(245, 229, 13);
     color: black;
+    padding: 1%;
+    border-radius: 12px;
 }
 
 h1 {
@@ -51,6 +53,10 @@ h1 {
     margin: 5px;
 }
 
+#catchThis{
+    background-color: aquamarine;
+}
+
 #catchThis:hover{
-    color: blueviolet;
+    background-color: blueviolet;
 }

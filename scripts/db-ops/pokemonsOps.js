@@ -49,7 +49,15 @@ const pokemonsOps = {
 
     drawThree: async () => {
         const ids = []
-        for (let i = 0; i < 3; i++) ids.push(Math.ceil(Math.random()*898))
+        for (let i = 0; i < 3; i++){
+            const randomizer = Math.ceil(Math.random()*898)
+            console.log(randomizer)
+            if (randomizer == 0) {
+                ids.push(1)
+            } else {
+              ids.push(randomizer)  
+            }  
+        } 
         const [wildPokemons] = await db.execute({
             sql: `SELECT * FROM pokemon where id IN (${ids[0]}, ${ids[1]}, ${ids[2]})`
         })
